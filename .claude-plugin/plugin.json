@@ -1,0 +1,11 @@
+{
+  "name": "zero-to-expert",
+  "displayName": "Zero to Expert",
+  "version": "1.1.1",
+  "description": "An expert teacher for Claude: builds a complete zero-to-expert course on any subject as a diagram-rich PDF, with verified official PDFs, websites and YouTube videos, everyday-life analogies, mini-labs, quizzes, a mind map per chapter and a global mind map.",
+  "author": { "name": "The Zero to Expert Authors", "url": "https://github.com/seccyber-si" },
+  "license": "MIT",
+  "homepage": "https://github.com/seccyber-si/zero-to-expert",
+  "repository": "https://github.com/seccyber-si/zero-to-expert",
+  "keywords": ["course", "training", "learning", "teacher", "pdf", "mindmap", "formation", "cours", "parcours"]
+}

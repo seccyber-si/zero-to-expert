@@ -1,0 +1,12 @@
+# Built packages: attach them to a GitHub release instead of committing them
+zero-to-expert-skill.zip
+dist/
+
+# Temporary files
+*.tmp
+build/
+
+# System files
+Thumbs.db
+desktop.ini
+.DS_Store

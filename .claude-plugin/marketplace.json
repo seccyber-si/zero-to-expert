@@ -1,0 +1,13 @@
+{
+  "name": "zero-to-expert-pack",
+  "owner": { "name": "The Zero to Expert Authors", "url": "https://github.com/seccyber-si" },
+  "description": "Zero to Expert: a skill and three agents that turn Claude into an expert teacher who builds complete, verified, diagram-rich PDF courses on any subject.",
+  "plugins": [
+    {
+      "name": "zero-to-expert",
+      "source": "./",
+      "description": "Expert teacher: a complete zero-to-expert course on any subject, as a diagram-rich PDF.",
+      "version": "1.1.1"
+    }
+  ]
+}

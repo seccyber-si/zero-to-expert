@@ -1,0 +1,221 @@
+/* course.css - zero-to-expert course kit. A4 print layout for headless Chromium (Edge, Chrome, Brave).
+   Each section.chapter gets its colour (--c, --c-soft, --c-mid) from diagrams.js, in palette order. */
+
+@page {
+  size: A4;
+  margin: 16mm 15mm 17mm 15mm;
+  @top-right { content: ""; font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; font-size: 7.5pt; color: #94a3b8; }
+  @bottom-right { content: counter(page) " / " counter(pages); font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; font-size: 7.5pt; color: #64748b; }
+}
+@page :first { margin: 0; @top-right { content: none; } @bottom-right { content: none; } }
+@page wide { size: A4 landscape; margin: 12mm 14mm 13mm 14mm; }
+
+:root {
+  --ink: #1e293b; --soft: #475569; --muted: #64748b; --line: #e2e8f0; --brand: #1e3a8a;
+  --c: #1e3a8a; --c-soft: #eef2ff; --c-mid: #c7d2fe;
+}
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  font-size: 10.2pt; line-height: 1.5; color: var(--ink); background: #ffffff; margin: 0;
+}
+a { color: #1d4ed8; text-decoration: none; }
+p { margin: 0 0 2.2mm; }
+ul, ol { margin: 0 0 2.4mm 5.5mm; padding: 0; }
+li { margin: 0 0 1mm; }
+b, strong { font-weight: 700; }
+code { font-family: Consolas, Menlo, "DejaVu Sans Mono", monospace; font-size: .88em; background: #f1f5f9; padding: 0 .8mm; border-radius: .6mm; }
+pre { font-family: Consolas, Menlo, "DejaVu Sans Mono", monospace; font-size: 8.4pt; line-height: 1.42; background: #0f172a; color: #e2e8f0;
+  padding: 2.4mm 3mm; border-radius: 1.6mm; white-space: pre-wrap; word-break: break-word; break-inside: avoid; margin: 2mm 0 3mm; }
+pre code { background: none; padding: 0; color: inherit; font-size: 1em; }
+
+/* ---------- headings ---------- */
+h2 { font-size: 20pt; line-height: 1.15; color: var(--c); margin: 0 0 2.4mm; break-after: avoid; }
+h2 .num { display: block; font-size: 8.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--c); margin-bottom: 1.2mm; }
+h2 .lvl { display: inline-block; vertical-align: middle; font-size: 8pt; font-weight: 600; letter-spacing: .02em; color: #ffffff;
+  background: var(--c); border-radius: 3mm; padding: .5mm 2.6mm; margin-left: 2.4mm; position: relative; top: -.6mm; }
+h3 { font-size: 13pt; line-height: 1.25; color: var(--c); margin: 6.5mm 0 2.2mm; break-after: avoid; }
+h3 .n { display: inline-block; min-width: 9mm; font-size: 10pt; font-weight: 700; color: #ffffff; background: var(--c);
+  border-radius: 1mm; text-align: center; padding: .3mm 1.4mm; margin-right: 2.2mm; position: relative; top: -.4mm; }
+h4 { font-size: 10.8pt; color: var(--ink); margin: 4mm 0 1.4mm; break-after: avoid; }
+section.chapter, section.annex { break-before: page; }
+section.annex h2 { color: var(--brand); }
+
+/* ---------- chapter header furniture ---------- */
+.progress { display: flex; gap: 1.2mm; margin: 0 0 4mm; }
+.progress span { flex: 1; height: 1.5mm; border-radius: 1mm; background: #e2e8f0; }
+.progress span.done { background: var(--c-mid); }
+.progress span.on { background: var(--c); }
+.chips { display: flex; flex-wrap: wrap; gap: 1.6mm; margin: 0 0 3.4mm; }
+.chip { font-size: 8.3pt; background: #f1f5f9; color: var(--soft); border-radius: 3mm; padding: .6mm 2.8mm; }
+.chip b { color: var(--ink); }
+
+/* ---------- teaching boxes ---------- */
+.objectives, .hook, .analogy, .def, .tip, .pitfall, .expert, .warn, .recap, .quiz, .case, .box {
+  break-inside: avoid; margin: 3.2mm 0; border-radius: 2mm; padding: 2.6mm 3.6mm;
+}
+.objectives > :last-child, .hook > :last-child, .analogy > :last-child, .def > :last-child, .tip > :last-child,
+.pitfall > :last-child, .expert > :last-child, .warn > :last-child, .recap > :last-child, .quiz > :last-child,
+.case > :last-child, .box > :last-child, .card > :last-child, .tp-body > :last-child { margin-bottom: 0; }
+.tag { display: inline-block; font-size: 7.5pt; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+  border-radius: 1mm; padding: .35mm 1.9mm; margin: 0 0 1.4mm; }
+.objectives { background: var(--c-soft); border-left: 1.2mm solid var(--c); }
+.objectives .tag { background: var(--c); color: #ffffff; }
+.objectives ul { list-style: none; margin-left: 0; }
+.objectives li { padding-left: 5mm; text-indent: -5mm; }
+.objectives li::before { content: "\2713"; color: var(--c); font-weight: 700; display: inline-block; width: 5mm; text-indent: 0; }
+.hook { background: #f8fafc; border: .3mm solid var(--line); font-size: 10.6pt; }
+.hook .tag { background: #334155; color: #ffffff; }
+.analogy { background: #fefce8; border-left: 1.2mm solid #eab308; }
+.analogy .tag { background: #eab308; color: #422006; }
+.analogy .limit { font-size: 9pt; color: #713f12; font-style: italic; }
+.def { background: #eff6ff; border-left: 1.2mm solid #2563eb; }
+.def .tag { background: #2563eb; color: #ffffff; }
+.tip { background: #ecfdf5; border-left: 1.2mm solid #059669; }
+.tip .tag { background: #059669; color: #ffffff; }
+.pitfall { background: #fef2f2; border-left: 1.2mm solid #dc2626; }
+.pitfall .tag { background: #dc2626; color: #ffffff; }
+.expert { background: #f5f3ff; border-left: 1.2mm solid #7c3aed; }
+.expert .tag { background: #7c3aed; color: #ffffff; }
+.warn { background: #fff7ed; border-left: 1.2mm solid #ea580c; }
+.warn .tag { background: #ea580c; color: #ffffff; }
+.case { background: #f0f9ff; border-left: 1.2mm solid #0284c7; }
+.case .tag { background: #0284c7; color: #ffffff; }
+.box { background: #f8fafc; border: .3mm solid var(--line); }
+.recap { background: var(--c-soft); border: .4mm solid var(--c-mid); }
+.recap .tag { background: var(--c); color: #ffffff; }
+.recap li { margin-bottom: 1.3mm; }
+.quiz { border: .45mm dashed var(--c-mid); }
+.quiz .tag { background: #0f172a; color: #ffffff; }
+.quiz li { margin-bottom: 1.6mm; }
+
+/* mini-TP: hands-on exercise card */
+.tp { break-inside: avoid; margin: 4mm 0; border: .5mm solid var(--c); border-radius: 2mm; overflow: hidden; }
+.tp-head { background: var(--c); color: #ffffff; padding: 2mm 3.6mm; display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+.tp-head b { font-size: 10.8pt; }
+.tp-head span { font-size: 8.3pt; white-space: nowrap; }
+.tp-body { padding: 2.6mm 3.6mm; }
+.tp dl { margin: 0; display: grid; grid-template-columns: 30mm 1fr; gap: 1.4mm 3mm; }
+.tp dt { font-weight: 700; color: var(--c); font-size: 9.3pt; }
+.tp dd { margin: 0; }
+.tp dd ol, .tp dd ul { margin-bottom: 0; }
+
+/* Boxes taller than 40 % of a page get .split from diagrams.js: they may continue on the next page
+   instead of leaving a big gap, and their label stays with the text that follows it. */
+.split { break-inside: auto; }
+.split .tag, .split .tp-head, .split dt { break-after: avoid; }
+.split li { break-inside: avoid; }
+.tp.split { overflow: visible; }
+.tp.split .tp-head { border-radius: 1.5mm 1.5mm 0 0; }
+
+/* side-by-side comparison */
+.versus { display: grid; grid-template-columns: 1fr auto 1fr; gap: 3mm; break-inside: avoid; margin: 3.2mm 0; }
+.versus > div { border-radius: 2mm; padding: 2.8mm 3.4mm; background: #f8fafc; border: .3mm solid var(--line); }
+.versus > div.vs { background: none; border: none; display: flex; align-items: center; font-weight: 800; color: var(--muted); padding: 0; }
+.versus h4 { margin-top: 0; color: var(--c); }
+
+/* ---------- figures ---------- */
+figure { margin: 4mm 0; break-inside: avoid; }
+figure svg { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+figcaption { font-size: 8.5pt; color: var(--muted); margin-top: 1.8mm; text-align: center; }
+figcaption b { color: var(--ink); }
+figure.dg-error { border: .6mm solid #dc2626; padding: 2mm; }
+figure.dg-error::before { content: "Diagram error: see the console"; color: #dc2626; font-weight: 700; display: block; }
+.chapter-map { break-inside: avoid; margin-top: 6mm; border-top: .5mm solid var(--c-mid); padding-top: 3mm; }
+.chapter-map h3 { margin-top: 0; }
+.wide { page: wide; break-before: page; }
+.wide figure svg { width: 100%; height: auto; max-height: 165mm; }
+
+/* ---------- tables ---------- */
+table { width: 100%; border-collapse: collapse; margin: 2mm 0 3.6mm; font-size: 9pt; }
+th { background: #f1f5f9; color: var(--ink); text-align: left; font-weight: 700; padding: 1.6mm 2mm; border-bottom: .4mm solid #cbd5e1; }
+td { padding: 1.5mm 2mm; border-bottom: .25mm solid var(--line); vertical-align: top; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+table.res td.ty { width: 21mm; }
+table.res .title { font-weight: 600; }
+table.res .meta, table.idx .meta { display: block; color: var(--muted); font-size: 8pt; margin-top: .4mm; }
+table.gloss td:first-child { width: 40mm; font-weight: 700; color: var(--brand); }
+table.plan td:first-child { width: 22mm; font-weight: 700; color: var(--brand); white-space: nowrap; }
+table.idx { font-size: 8.4pt; }
+table.idx td:first-child, table.idx th:first-child { width: 8mm; text-align: center; }
+td.url, .url { font-family: Consolas, Menlo, "DejaVu Sans Mono", monospace; font-size: 7.4pt; word-break: break-all; }
+.b { display: inline-block; font-size: 6.9pt; font-weight: 700; letter-spacing: .04em; padding: .25mm 1.5mm; border-radius: .8mm; margin: 0 .8mm .7mm 0; }
+.b-video { background: #fee2e2; color: #991b1b; }
+.b-pdf { background: #dbeafe; color: #1e3a8a; }
+.b-web { background: #d1fae5; color: #065f46; }
+.b-book { background: #fef3c7; color: #92400e; }
+.b-course { background: #ede9fe; color: #5b21b6; }
+.b-tool { background: #e0f2fe; color: #075985; }
+.b-key { background: #0f172a; color: #ffffff; }
+.b-more { background: #e5e7eb; color: #374151; }
+
+/* ---------- cover (page 1, full bleed) ---------- */
+.cover { height: 297mm; box-sizing: border-box; overflow: hidden; break-after: page; position: relative; }
+.cover-band { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 58%, #2563eb 100%); color: #ffffff; padding: 24mm 18mm 13mm; }
+.cover .kicker { font-size: 9.5pt; letter-spacing: .16em; text-transform: uppercase; color: #bfdbfe; font-weight: 700; margin-bottom: 4mm; }
+.cover h1 { font-size: 30pt; line-height: 1.08; margin: 0 0 4mm; color: #ffffff; }
+.cover .subtitle { font-size: 13pt; line-height: 1.35; color: #dbeafe; margin: 0; max-width: 165mm; }
+.cover-body { padding: 7mm 18mm 0; }
+.stats { display: flex; flex-wrap: wrap; gap: 2.4mm; margin: 0 0 5.5mm; }
+.stat { background: #f1f5f9; border-radius: 2mm; padding: 2mm 3.4mm; font-size: 8.4pt; color: var(--soft); }
+.stat b { display: block; font-size: 13.5pt; color: var(--brand); line-height: 1.2; }
+.cover-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-bottom: 4mm; }
+.card { border: .3mm solid var(--line); border-radius: 2mm; padding: 3mm 3.6mm; break-inside: avoid; font-size: 9.6pt; }
+.card h3 { margin: 0 0 1.6mm; font-size: 11pt; color: var(--brand); }
+.card ul { margin-bottom: 0; }
+.cover figure { margin: 2mm 0 0; }
+.cover .foot { position: absolute; left: 18mm; right: 18mm; bottom: 10mm; font-size: 8pt; color: var(--muted); border-top: .3mm solid var(--line); padding-top: 2mm; }
+
+/* ---------- intro page: how to use + legend + contents ---------- */
+section.intro h2 { color: var(--brand); }
+.legend { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2mm; margin: 2mm 0 4mm; font-size: 8.8pt; }
+.legend > div { border-radius: 1.6mm; padding: 1.8mm 2.4mm; break-inside: avoid; }
+.legend .analogy, .legend .def, .legend .tip, .legend .pitfall, .legend .expert, .legend .warn { margin: 0; padding: 1.8mm 2.4mm; }
+.legend .tag { margin-bottom: .6mm; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc li { display: flex; align-items: baseline; gap: 2.4mm; padding: 1.7mm 0 1.7mm 3mm; border-bottom: .25mm solid var(--line); border-left: 1.2mm solid var(--c, #cbd5e1); font-size: 10.4pt; margin: 0; }
+.toc li .tnum { min-width: 25mm; font-size: 8.2pt; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--c, var(--soft)); }
+.toc li a { color: var(--ink); flex: 1; }
+.toc li .lvl { font-size: 8pt; color: var(--muted); white-space: nowrap; }
+.toc li.annex { border-left-color: #cbd5e1; }
+.toc li.annex a { color: var(--soft); }
+
+/* ---------- utilities ---------- */
+.pb { break-before: page; }
+.keep { break-inside: avoid; }
+.small { font-size: 8.7pt; color: var(--soft); }
+.muted { color: var(--muted); }
+.two { columns: 2; column-gap: 7mm; }
+.two > * { break-inside: avoid; }
+
+/* ---------- compact layout: <body class="compact"> for short courses (denser text, tighter boxes) ---------- */
+body.compact { font-size: 9.4pt; line-height: 1.4; }
+.compact p { margin: 0 0 1.6mm; }
+.compact li { margin: 0 0 .6mm; }
+.compact h2 { font-size: 18pt; margin-bottom: 1.6mm; }
+.compact .chapter h3, .compact .annex h3, .compact .intro h3 { font-size: 12pt; margin: 4.2mm 0 1.6mm; }
+.compact .chapter-map h3 { font-size: 10.5pt; margin: 0 0 .4mm; }
+.compact .objectives, .compact .hook, .compact .analogy, .compact .def, .compact .tip, .compact .pitfall,
+.compact .expert, .compact .warn, .compact .recap, .compact .quiz, .compact .case, .compact .box { margin: 2.2mm 0; padding: 1.9mm 3mm; }
+.compact .hook { font-size: 9.8pt; }
+.compact .tag { margin-bottom: .8mm; }
+.compact .tp { margin: 3mm 0; }
+.compact .tp-head { padding: 1.5mm 3mm; }
+.compact .tp-body { padding: 2mm 3mm; }
+.compact .tp dl { grid-template-columns: 26mm 1fr; gap: .8mm 3mm; }
+.compact figure { margin: 2.6mm 0; }
+.compact figcaption { margin-top: 1.2mm; font-size: 8.2pt; }
+.compact .chapter-map { margin-top: 3.5mm; padding-top: 2mm; }
+.compact table { margin: 1.5mm 0 2.5mm; font-size: 8.6pt; }
+.compact th { padding: 1.1mm 1.8mm; }
+.compact td { padding: 1mm 1.8mm; }
+.compact .chips { margin-bottom: 2.4mm; }
+.compact .progress { margin-bottom: 2.6mm; }
+
+/* Reading the HTML in a browser (not used for the PDF) */
+@media screen {
+  html { background: #e5e7eb; }
+  body { max-width: 210mm; margin: 0 auto; padding: 12mm 16mm; box-shadow: 0 0 8mm rgba(0, 0, 0, .12); }
+  .cover { margin: -12mm -16mm 12mm; }
+}

@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use or share this kit, please credit it as below."
+title: "Zero to Expert"
+abstract: "A Claude skill and three Claude Code agents that build complete zero-to-expert PDF courses on any subject, with verified sources, diagrams, mini-labs and mind maps."
+type: software
+authors:
+  - name: "The Zero to Expert Authors"
+version: 1.1.1
+license: MIT
+keywords:
+  - claude
+  - claude-code
+  - agent-skills
+  - course
+  - education
+repository-code: "https://github.com/seccyber-si/zero-to-expert"
+date-released: 2026-11-24

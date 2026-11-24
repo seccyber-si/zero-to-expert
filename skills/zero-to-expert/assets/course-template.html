@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--
+  zero-to-expert course template.
+  1. Copy this file as course.html next to course.css and diagrams.js (same folder).
+  2. Set lang="" to the course language and translate EVERY label (Objectives, Key takeaways, Mini-lab...).
+     Label translations: references/pedagogy.md, section "Labels".
+  3. Replace every [bracketed placeholder]. Delete the HTML comments you no longer need.
+  4. Write the skeleton first (cover, intro, one empty <section class="chapter"> per chapter, end matter),
+     then fill ONE chapter per edit.
+  Box classes: objectives, hook, analogy, def, expert, pitfall, tip, warn, case, recap, quiz, tp, versus.
+  Diagram classes (figure.dg + type): mindmap, roadmap, flow, cycle, layers, timeline -> references/diagrams.md
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>[Course title] — from zero to expert</title>
+<meta name="running-title" content="[Short course title] · from zero to expert">
+<link rel="stylesheet" href="course.css">
+</head>
+<body>
+
+<!-- ================= COVER (page 1, must fit on one page) ================= -->
+<section class="cover">
+  <div class="cover-band">
+    <div class="kicker">[Learning path · From zero to expert]</div>
+    <h1>[Course title]</h1>
+    <p class="subtitle">[One sentence: what the learner will be able to do at the end.]</p>
+  </div>
+  <div class="cover-body">
+    <div class="stats">
+      <div class="stat"><b>[7]</b>[chapters]</div>
+      <div class="stat"><b>[≈ 20 h]</b>[of work]</div>
+      <div class="stat"><b>[10]</b>[mini-labs]</div>
+      <div class="stat"><b>[40]</b>[verified sources]</div>
+      <div class="stat"><b>[Level 0 → 5]</b>[from zero to expert]</div>
+    </div>
+    <div class="cover-grid">
+      <div class="card"><h3>[Who is this for?]</h3><p>[Learner profile, prerequisites, and the assumptions you made.]</p></div>
+      <div class="card"><h3>[By the end you will be able to…]</h3><ul><li>[competency 1]</li><li>[competency 2]</li><li>[competency 3]</li></ul></div>
+    </div>
+    <!-- The whole path: one milestone per chapter, in order. Milestone i has the colour of chapter i. -->
+    <figure class="dg roadmap">
+      <ol>
+        <li><b>[Chapter 1 short title]</b> [Level 1]</li>
+        <li><b>[Chapter 2 short title]</b> [Level 1]</li>
+        <li><b>[Chapter 3 short title]</b> [Level 2]</li>
+      </ol>
+      <figcaption><b>[The path]</b>: [N steps from zero to expert.]</figcaption>
+    </figure>
+  </div>
+  <div class="foot">[Version of DD/MM/YYYY · sources checked on DD/MM/YYYY · made with Claude (zero-to-expert skill)]</div>
+</section>
+
+<!-- ================= HOW TO USE + CONTENTS (page 2) ================= -->
+<section class="intro">
+  <h2>[How to use this course]</h2>
+  <p>[3-5 sentences: read in order, do every mini-lab, answer the quiz before reading the answers, weekly rhythm, review plan.]</p>
+  <div class="legend">
+    <div class="analogy"><span class="tag">[Everyday life]</span><br>[An analogy first, the technical word after.]</div>
+    <div class="def"><span class="tag">[Definition]</span><br>[The exact term, in one simple sentence.]</div>
+    <div class="expert"><span class="tag">[Expert view]</span><br>[What pros know that beginners don't.]</div>
+    <div class="pitfall"><span class="tag">[Common mistake]</span><br>[The classic trap and how to avoid it.]</div>
+    <div class="tip"><span class="tag">[Pro tip]</span><br>[A habit that saves time.]</div>
+    <div class="warn"><span class="tag">[Safety]</span><br>[Read before you practise.]</div>
+  </div>
+  <h3 style="color: var(--brand)">[Contents]</h3>
+  <div class="toc" data-toc></div><!-- filled automatically from the chapter and annex titles -->
+</section>
+
+<!-- ================= CHAPTERS: one <section class="chapter"> each, in order ================= -->
+<section class="chapter" id="ch1">
+  <h2><span class="num">[Chapter 1]</span>[Chapter title] <span class="lvl">[Level 1]</span></h2>
+  <div class="chips"><span class="chip"><b>[Time]</b> [≈ 2 h]</span><span class="chip"><b>[Prerequisites]</b> [none]</span><span class="chip"><b>[Mini-labs]</b> [2]</span></div>
+
+  <div class="objectives"><span class="tag">[Objectives]</span>
+    <ul><li>[Explain … (action verb, checkable)]</li><li>[Use … to …]</li><li>[Decide between … and …]</li></ul>
+  </div>
+  <div class="hook"><span class="tag">[Why it matters]</span>
+    <p>[A real problem, incident or situation that makes the learner want to know. Source real events; label invented ones ("Imagine…").]</p>
+  </div>
+
+  <!-- One h3 per key notion. Order inside a notion: analogy -> definition -> how it works (+ diagram) -> example -> expert/pitfall/tip -->
+  <h3><span class="n">1.1</span>[Notion title, as a plain-language idea]</h3>
+  <div class="analogy"><span class="tag">[Everyday life]</span>
+    <p>[Analogy from daily life whose mechanism matches the notion.]</p>
+    <p class="limit">[Where the analogy stops working: …]</p>
+  </div>
+  <div class="def"><span class="tag">[Definition]</span><p><b>[Term]</b>: [simple, exact definition.]</p></div>
+  <p>[Explanation in short sentences. One idea per paragraph. Define every new word at first use.]</p>
+  <figure class="dg flow">
+    <ol>
+      <li><b>[Step 1]</b> [short detail]</li>
+      <li><b>[Step 2]</b> [short detail]</li>
+      <li><b>[Step 3]</b> [short detail]</li>
+    </ol>
+    <figcaption><b>[Figure 1.1]</b>: [what to notice in this diagram.]</figcaption>
+  </figure>
+  <div class="case"><span class="tag">[Concrete example]</span><p>[A worked example with real numbers, commands or situations.]</p></div>
+  <div class="expert"><span class="tag">[Expert view]</span><p>[Field insight: what a seasoned practitioner checks first, the trade-off they weigh.]</p></div>
+  <div class="pitfall"><span class="tag">[Common mistake]</span><p>[The misconception, why it is wrong, what to do instead.]</p></div>
+  <div class="tip"><span class="tag">[Pro tip]</span><p>[A practical habit.]</p></div>
+  <!-- Optional comparison: -->
+  <div class="versus">
+    <div><h4>[Option A]</h4><p>[When and why.]</p></div>
+    <div class="vs">VS</div>
+    <div><h4>[Option B]</h4><p>[When and why.]</p></div>
+  </div>
+
+  <!-- Mini-lab: 5-30 min, one goal, safe, with an expected result the learner can check alone. -->
+  <div class="tp">
+    <div class="tp-head"><b>[Mini-lab 1.1 — title]</b><span>[15 min · easy]</span></div>
+    <div class="tp-body"><dl>
+      <dt>[Goal]</dt><dd>[What the learner will have done or seen.]</dd>
+      <dt>[You need]</dt><dd>[Free, accessible material or tools. Safe: lab, sandbox, test data.]</dd>
+      <dt>[Steps]</dt><dd><ol><li>[step]</li><li>[step]</li><li>[step]</li></ol></dd>
+      <dt>[Expected result]</dt><dd>[What success looks like, concretely.]</dd>
+      <dt>[If you are stuck]</dt><dd>[The 1-2 most likely causes and fixes.]</dd>
+      <dt>[Go further]</dt><dd>[Optional harder variant.]</dd>
+    </dl></div>
+  </div>
+
+  <div class="recap"><span class="tag">[Key takeaways]</span>
+    <ol><li>[takeaway 1]</li><li>[takeaway 2]</li><li>[takeaway 3]</li></ol>
+  </div>
+  <div class="quiz"><span class="tag">[Self-check]</span>
+    <ol><li>[recall question]</li><li>[understanding question: why…?]</li><li>[scenario: what would you do if…?]</li></ol>
+    <p class="small">[Answers in the appendix.]</p>
+  </div>
+
+  <h4>[Resources for this chapter]</h4>
+  <table class="res">
+    <thead><tr><th>[Type]</th><th>[Resource]</th><th>[Why this one]</th></tr></thead>
+    <tbody>
+      <!-- type badges: b-pdf, b-web, b-video, b-book, b-course, b-tool ; priority badges: b-key (essential), b-more (go further) -->
+      <tr><td class="ty"><span class="b b-pdf">[PDF]</span><span class="b b-key">[ESSENTIAL]</span></td>
+          <td><a class="title" href="[https://verified-url]">[Exact title]</a><span class="meta">[Publisher · 2025 · 48 p. · EN]</span></td>
+          <td>[What the learner gets from it, which part to read.]</td></tr>
+      <tr><td class="ty"><span class="b b-video">[VIDEO]</span><span class="b b-more">[GO FURTHER]</span></td>
+          <td><a class="title" href="[https://www.youtube.com/watch?v=...]">[Exact video title]</a><span class="meta">[Channel · 14 min · 2024 · EN]</span></td>
+          <td>[Why: e.g. live demo of step 2.]</td></tr>
+    </tbody>
+  </table>
+
+  <!-- End of chapter: mind map (or roadmap for a procedural chapter). Root = chapter, branches = notions. -->
+  <div class="chapter-map">
+    <h3>[Chapter 1 mind map]</h3>
+    <figure class="dg mindmap">
+      <ul><li>[Chapter title]
+        <ul>
+          <li>[Notion 1.1]<ul><li>[key point]</li><li>[key point]</li></ul></li>
+          <li>[Notion 1.2]<ul><li>[key point]</li><li>[key point]</li></ul></li>
+          <li>[Notion 1.3]<ul><li>[key point]</li></ul></li>
+        </ul>
+      </li></ul>
+    </figure>
+  </div>
+</section>
+
+<!-- CHAPTER 2 -->
+<!-- CHAPTER 3 -->
+
+<!-- ================= END MATTER ================= -->
+<!-- Global mind map on its own landscape page: root = subject, one branch per chapter (in chapter order,
+     so each branch gets its chapter colour), 2-4 leaves per branch. -->
+<section class="annex wide" id="synthesis">
+  <h2>[Synthesis: the mind map of the whole course]</h2>
+  <figure class="dg mindmap" data-layout="both">
+    <ul><li>[Subject]
+      <ul>
+        <li>[1. Chapter 1]<ul><li>[key idea]</li><li>[key idea]</li><li>[key idea]</li></ul></li>
+        <li>[2. Chapter 2]<ul><li>[key idea]</li><li>[key idea]</li></ul></li>
+        <li>[3. Chapter 3]<ul><li>[key idea]</li><li>[key idea]</li></ul></li>
+      </ul>
+    </li></ul>
+    <figcaption>[Each branch has the colour of its chapter.]</figcaption>
+  </figure>
+</section>
+
+<section class="annex" id="plan">
+  <h2>[Your learning plan]</h2>
+  <table class="plan">
+    <thead><tr><th>[Week]</th><th>[What to do]</th><th>[Review]</th></tr></thead>
+    <tbody><tr><td>[Week 1]</td><td>[Chapters 1-2, mini-labs 1.1-2.2]</td><td>[Re-do quiz 1 on day 2, day 7]</td></tr></tbody>
+  </table>
+  <h3 style="color: var(--brand)">[Final project]</h3>
+  <div class="box"><p>[A realistic capstone that uses most chapters, with deliverables.]</p>
+    <p><b>[You have reached expert level when…]</b></p><ul><li>[criterion]</li><li>[criterion]</li></ul></div>
+  <h3 style="color: var(--brand)">[Going further: certifications, communities, news]</h3>
+  <ul><li>[certification or path, with official link]</li><li>[community, newsletter, conference]</li></ul>
+</section>
+
+<section class="annex" id="glossary">
+  <h2>[Glossary]</h2>
+  <table class="gloss">
+    <thead><tr><th>[Term]</th><th>[Simple definition]</th></tr></thead>
+    <tbody><tr><td>[Term]</td><td>[definition, plus the English term if the course is not in English]</td></tr></tbody>
+  </table>
+</section>
+
+<section class="annex" id="answers">
+  <h2>[Answers to the self-checks]</h2>
+  <h4>[Chapter 1]</h4>
+  <ol><li>[answer + one sentence of why]</li></ol>
+</section>
+
+<section class="annex" id="sources">
+  <h2>[All sources]</h2>
+  <p class="small">[Every link was opened and checked on DD/MM/YYYY.]</p>
+  <table class="idx">
+    <thead><tr><th>#</th><th>[Resource]</th><th>[Chapter]</th><th>[Link]</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>[Title]<span class="meta">[Publisher · type · date · language]</span></td><td>[1]</td><td class="url">[https://verified-url]</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<script src="diagrams.js"></script>
+</body>
+</html>
