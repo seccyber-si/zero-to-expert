@@ -128,6 +128,10 @@ Le formateur applique des réglages par défaut :
 - **YouTube** : la recherche YouTube sans navigateur lit les pages publiques. Elle peut casser si YouTube change son format ; le formateur passe alors par un navigateur ou par la page web.
 - **Relecture humaine** : relisez le cours avant de le diffuser, surtout sur les sujets réglementés (santé, droit, finance, sécurité).
 
+## Contribuer
+
+Signalements de bugs, retours sur la qualité des cours et pull requests sont les bienvenus : voir [CONTRIBUTING.md](CONTRIBUTING.md) (en anglais). Les problèmes de sécurité se signalent en privé, comme l'explique [SECURITY.md](SECURITY.md).
+
 ## Auteur et licence
 
 Zero to Expert est distribué sous licence MIT. Vous pouvez l'utiliser, le modifier et le partager, à condition de conserver la mention de copyright et le texte de la licence (fichier `LICENSE`). Pour citer le projet, utilisez `CITATION.cff` ; sur GitHub, c'est le bouton « Cite this repository ».

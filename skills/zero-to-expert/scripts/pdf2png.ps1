@@ -11,12 +11,14 @@
 .EXAMPLE
   .\pdf2png.ps1 -Pdf .\course.pdf -OutPrefix .\build\p- -Sheet            # build\p-sheet-1.png, p-sheet-2.png...
   .\pdf2png.ps1 -Pdf .\course.pdf -OutPrefix .\build\page- -Pages 1,2,7   # build\page-01.png, page-02.png, page-07.png
+  .\pdf2png.ps1 -Pdf .\course.pdf -OutPrefix .\build\page- -Pages 3-6     # ranges too: build\page-03.png ... page-06.png
   .\pdf2png.ps1 -Pdf .\course.pdf -OutPrefix .\build\page-                # every page
+  -Pages also works through "powershell -File pdf2png.ps1 ... -Pages 1,4" (the list then arrives as one string).
 #>
 param(
     [Parameter(Mandatory = $true)][string]$Pdf,
     [Parameter(Mandatory = $true)][string]$OutPrefix,
-    [int[]]$Pages,
+    [string[]]$Pages,   # strings, not int[]: through -File, '1,4' arrives as one string that [int] would read as 14
     [int]$Width = 1300,
     [switch]$Sheet
 )
@@ -50,8 +52,16 @@ function Render-Page([int]$n, [int]$w) {
 
 $file = Await ([Windows.Storage.StorageFile]::GetFileFromPathAsync($Pdf)) ([Windows.Storage.StorageFile])
 $doc = Await ([Windows.Data.Pdf.PdfDocument]::LoadFromFileAsync($file)) ([Windows.Data.Pdf.PdfDocument])
-if (-not $Pages) { $Pages = 1..$doc.PageCount }
-$list = @($Pages | Where-Object { $_ -ge 1 -and $_ -le $doc.PageCount })
+# Accepts 1,4 / '1,4' / '1 4' / 3-6, whether it comes from a call operator or from powershell -File.
+$nums = New-Object System.Collections.Generic.List[int]
+foreach ($tok in @($Pages | ForEach-Object { "$_" -split '[,;\s]+' } | Where-Object { $_ })) {
+    if ($tok -match '^(\d+)-(\d+)$') { [int]$Matches[1]..[int]$Matches[2] | ForEach-Object { $nums.Add($_) } }
+    elseif ($tok -match '^\d+$') { $nums.Add([int]$tok) }
+    else { throw "Invalid page '$tok' in -Pages: use numbers and ranges, e.g. 1,4,7-9" }
+}
+if ($nums.Count -eq 0) { $nums.AddRange([int[]](1..$doc.PageCount)) }
+$list = @($nums | Where-Object { $_ -ge 1 -and $_ -le $doc.PageCount })
+if ($list.Count -eq 0) { throw "No page of -Pages is inside the PDF (1..$($doc.PageCount))" }
 $made = New-Object System.Collections.Generic.List[string]
 
 if ($Sheet) {

@@ -5,7 +5,7 @@ abstract: "A Claude skill and three Claude Code agents that build complete zero-
 type: software
 authors:
   - name: "The Zero to Expert Authors"
-version: 1.1.1
+version: 1.1.2
 license: MIT
 keywords:
   - claude
@@ -14,4 +14,4 @@ keywords:
   - course
   - education
 repository-code: "https://github.com/seccyber-si/zero-to-expert"
-date-released: 2026-11-24
+date-released: 2026-11-25

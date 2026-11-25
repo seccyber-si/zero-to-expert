@@ -1,0 +1,40 @@
+name: Course quality
+description: The kit ran, but the course has a problem (wrong facts, weak explanations, layout, dead links, missing parts).
+labels: ["course-quality"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "1.1.2"
+    validations:
+      required: true
+  - type: input
+    id: subject
+    attributes:
+      label: Subject, language and format you asked for
+      placeholder: "Kubernetes, English, standard format"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of problem
+      multiple: true
+      options:
+        - Factual error
+        - Explanation too hard or too shallow
+        - Diagram missing, wrong or broken
+        - Layout (cut boxes, empty pages, overflow)
+        - Dead or wrong link / video
+        - Missing part (lab, quiz, mind map)
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Page numbers in the PDF and what is wrong. A screenshot of the page helps. Do not attach confidential material.
+    validations:
+      required: true

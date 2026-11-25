@@ -1,0 +1,51 @@
+name: Bug report
+description: A script, install step or agent does not work as documented.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. For a security problem, do not use this form: see the [security policy](https://github.com/seccyber-si/zero-to-expert/security/policy).
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The `version` in `.claude-plugin/plugin.json`, or the release you downloaded.
+      placeholder: "1.1.2"
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How did you install it?
+      options:
+        - Claude Code plugin (/plugin install)
+        - install.ps1 (Windows)
+        - install.sh (macOS / Linux)
+        - Skill zip on claude.ai or Claude Desktop
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "Windows 11 / macOS 15 / Ubuntu 24.04"
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: What you ran
+      description: The exact request or command.
+      placeholder: "/zero-to-expert photography, short format"
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened, and what you expected
+      description: Paste the error message if there is one. Remove any personal paths or private content.
+      render: text
+    validations:
+      required: true

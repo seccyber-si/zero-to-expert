@@ -191,9 +191,12 @@ zero-to-expert/
 ├── CHANGELOG.md                     release notes
 ├── LICENSE                          MIT
 ├── CITATION.cff                     how to cite the project
+├── CONTRIBUTING.md                  how to report bugs and propose changes
+├── CODE_OF_CONDUCT.md / SECURITY.md community rules / private security reports
 ├── install.ps1 / install.sh         install by copy (Windows / macOS-Linux)
 ├── tools/make-release.ps1           builds the release zips (maintainers)
 ├── docs/images/                     screenshots of the example courses
+├── .github/                         issue and pull request templates
 ├── .claude-plugin/
 │   ├── plugin.json                  the repository is a Claude Code plugin...
 │   └── marketplace.json             ...and its own marketplace
@@ -214,6 +217,10 @@ zero-to-expert/
 2. Run `claude plugin validate .`
 3. Build: `powershell -ExecutionPolicy Bypass -File tools\make-release.ps1`. It checks the version numbers and that every `.ps1` file is pure ASCII, then writes `zero-to-expert-skill.zip` and `dist/zero-to-expert-pack.zip`.
 4. Publish a GitHub release `vX.Y.Z` with both zips attached. Their names never change, so the "latest release" download links above stay valid.
+
+## Contributing
+
+Bug reports, course-quality feedback and pull requests are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md). Report security problems privately, as explained in [SECURITY.md](SECURITY.md).
 
 ## License
 

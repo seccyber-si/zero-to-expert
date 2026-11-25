@@ -65,5 +65,5 @@ function New-Zip([string]$from, [string]$prefix, [string]$zip, [string[]]$skip) 
 
 New-Zip (Join-Path $root 'skills\zero-to-expert') 'zero-to-expert' (Join-Path $root 'zero-to-expert-skill.zip') @()
 if (-not (Test-Path -LiteralPath $OutDir)) { New-Item -ItemType Directory -Path $OutDir | Out-Null }
-New-Zip $root 'zero-to-expert-pack' (Join-Path $OutDir 'zero-to-expert-pack.zip') @('.git', 'dist', 'docs')
+New-Zip $root 'zero-to-expert-pack' (Join-Path $OutDir 'zero-to-expert-pack.zip') @('.git', '.github', 'dist', 'docs')
 "Version $version is ready. Attach both zip files to the GitHub release v$version."
